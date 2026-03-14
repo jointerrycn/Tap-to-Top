@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://mpsvtilox52o"]
+
+[ext_resource type="Script" uid="uid://rhfcu45mqtia" path="res://main.gd" id="1_ig7tw"]
+
+[node name="main" type="Node2D" unique_id=1402791386]
+script = ExtResource("1_ig7tw")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1045114170]
+offset_left = 490.0
+offset_top = 499.0
+offset_right = 592.0
+offset_bottom = 550.0
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="." unique_id=45396502]
+offset_left = 413.0
+offset_top = 119.0
+offset_right = 478.0
+offset_bottom = 142.0
+text = "Time: 10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TapButton" type="Button" parent="." unique_id=739354290]
+offset_left = 422.0
+offset_top = 1007.0
+offset_right = 722.0
+offset_bottom = 1307.0
+text = "TAP"
+
+[node name="StartButton" type="Button" parent="." unique_id=1431977456]
+offset_left = 407.0
+offset_top = 604.0
+offset_right = 707.0
+offset_bottom = 904.0
+text = "START"
