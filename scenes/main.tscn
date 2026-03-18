@@ -1,0 +1,235 @@
+[gd_scene format=3 uid="uid://mpsvtilox52o"]
+
+[ext_resource type="Script" uid="uid://rhfcu45mqtia" path="res://scripts/main.gd" id="1_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://bp0cjn4jamixe" path="res://assets/ui/back_ground.png" id="2_sugp2"]
+[ext_resource type="Texture2D" uid="uid://d17crluybdnqb" path="res://assets/ui/score_panel.png" id="3_jyhfs"]
+[ext_resource type="AudioStream" uid="uid://c3g6atmsf6gfl" path="res://audio/tap.wav" id="7_trceg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_of57s"]
+blend_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_tbgi4"]
+font_size = 90
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(1, 0.26666668, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tqoya"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b5f6u"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k65ib"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tipki"]
+font_size = 40
+font_color = Color(1, 0, 1, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_85g3d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_choun"]
+font = SubResource("SystemFont_85g3d")
+font_size = 120
+font_color = Color(1, 1, 0, 1)
+outline_color = Color(1, 1, 0.07058824, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_trceg"]
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_a8y0u"]
+font_size = 60
+
+[node name="main" type="Control" unique_id=1775664698]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o6xl0")
+
+[node name="Explosion" type="CPUParticles2D" parent="." unique_id=646045668]
+z_index = 10
+material = SubResource("CanvasItemMaterial_of57s")
+emitting = false
+amount = 60
+lifetime = 0.4
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 301.77
+initial_velocity_max = 301.77
+
+[node name="Background" type="TextureRect" parent="." unique_id=220927408]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 7.0
+offset_right = 714.0
+offset_bottom = 1287.0
+texture = ExtResource("2_sugp2")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1817886215]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="Tittle" type="Label" parent="VBoxContainer" unique_id=641488128]
+layout_direction = 4
+layout_mode = 2
+text = "TAP TO TOP!"
+label_settings = SubResource("LabelSettings_tbgi4")
+
+[node name="Panel" type="TextureRect" parent="VBoxContainer" unique_id=1595711970]
+layout_mode = 2
+texture = ExtResource("3_jyhfs")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Panel" unique_id=1413178180]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 103.0
+offset_right = 715.0
+offset_bottom = 221.0
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="TimeLabel" type="Label" parent="VBoxContainer/Panel/HBoxContainer" unique_id=45396502]
+layout_mode = 2
+text = "10                    "
+label_settings = SubResource("LabelSettings_tqoya")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="VBoxContainer/Panel/HBoxContainer" unique_id=1045114170]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_b5f6u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TapButton" type="TextureButton" parent="VBoxContainer" unique_id=1619764981]
+material = SubResource("CanvasItemMaterial_k65ib")
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 2
+stretch_mode = 3
+
+[node name="TapSound" type="AudioStreamPlayer2D" parent="." unique_id=635232218]
+stream = ExtResource("7_trceg")
+
+[node name="HighScorePopup" type="TextureRect" parent="." unique_id=1705895339]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 763.0
+offset_right = 797.0
+offset_bottom = 1432.0
+
+[node name="HighScoreLabel" type="Label" parent="HighScorePopup" unique_id=504181682]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="PlayButton" type="TextureButton" parent="HighScorePopup" unique_id=595647506]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HomeButton" type="TextureButton" parent="HighScorePopup" unique_id=1572391673]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CountdownPopup" type="TextureRect" parent="." unique_id=215439354]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -339.0
+offset_top = -260.0
+offset_right = 339.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InfoLabel" type="Label" parent="CountdownPopup" unique_id=1249736150]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 131.0
+offset_right = 689.0
+offset_bottom = 255.0
+text = "akjhsdhkjaskjhdhjakdshjkasjk"
+label_settings = SubResource("LabelSettings_tipki")
+
+[node name="CountdownLabel" type="Label" parent="CountdownPopup" unique_id=73124622]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 223.0
+offset_right = 371.0
+offset_bottom = 347.0
+text = "3"
+label_settings = SubResource("LabelSettings_choun")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverPopup" type="TextureRect" parent="." unique_id=382428284]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -356.0
+offset_top = -208.0
+offset_right = 319.0
+offset_bottom = 411.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreLabel" type="Label" parent="GameOverPopup" unique_id=1515182430]
+layout_mode = 0
+offset_left = 308.5
+offset_top = 243.5
+offset_right = 399.5
+offset_bottom = 326.5
+text = "10"
+label_settings = SubResource("LabelSettings_trceg")
+
+[node name="HighScoreLabel" type="Label" parent="GameOverPopup" unique_id=698837449]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.086
+anchor_bottom = 0.312
+offset_left = 275.0
+offset_top = 373.0
+offset_right = 332.45
+offset_bottom = 262.872
+text = "500"
+label_settings = SubResource("LabelSettings_a8y0u")
+
+[node name="PlayButton" type="TextureButton" parent="GameOverPopup" unique_id=161205934]
+layout_mode = 0
+offset_left = 103.5
+offset_top = 463.5
+offset_right = 369.5
+offset_bottom = 582.5
+
+[node name="ReplayButton" type="TextureButton" parent="GameOverPopup" unique_id=692230654]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 462.0
+offset_right = 571.0
+offset_bottom = 595.0
+
+[connection signal="pressed" from="VBoxContainer/TapButton" to="." method="_on_TapButton_pressed"]
+[connection signal="pressed" from="GameOverPopup/PlayButton" to="." method="_on_PlayButton_pressed"]

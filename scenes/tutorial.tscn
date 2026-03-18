@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://c6wrhqnlf2auj"]
+
+[ext_resource type="Script" uid="uid://drcchqd0x3oiv" path="res://tutorial.gd" id="1_ph3nu"]
+[ext_resource type="Texture2D" uid="uid://bwrp28huo167l" path="res://assets/ui/tutorial/button_tap.png" id="4_4kmhl"]
+[ext_resource type="Texture2D" uid="uid://c7prspdaaw02s" path="res://assets/ui/tutorial/title.png" id="4_6yjpi"]
+[ext_resource type="Texture2D" uid="uid://db3ebxc2racck" path="res://assets/ui/tutorial/f_finger.png" id="4_cq4me"]
+
+[node name="Tutorial" type="Control" unique_id=1174712995]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ph3nu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=806612375]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9843137, 0.9647059, 0.9490196, 1)
+
+[node name="Circle" type="TextureRect" parent="." unique_id=681954178]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 521.0
+offset_right = 583.0
+offset_bottom = 971.0
+texture = ExtResource("4_4kmhl")
+
+[node name="Title" type="TextureRect" parent="." unique_id=1440912832]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 187.0
+offset_right = 610.0
+offset_bottom = 445.0
+texture = ExtResource("4_6yjpi")
+
+[node name="Finger" type="TextureRect" parent="." unique_id=1337117171]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 232.00002
+offset_top = 642.0
+offset_right = 30.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_cq4me")
+stretch_mode = 6
